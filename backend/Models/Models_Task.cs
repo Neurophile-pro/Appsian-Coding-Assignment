@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
+// Task ITem Model for the backend application
 {
     public class TaskItem
     {
