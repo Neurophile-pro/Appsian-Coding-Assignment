@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/context_AuthContext';
 import ProtectedRoute from "./components/Layout/components_Layout_ProtectedRoute";
