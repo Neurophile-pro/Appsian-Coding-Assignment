@@ -1,0 +1,451 @@
+/* ============================================ */
+/* MODERN PROJECT DETAILS DESIGN */
+/* ============================================ */
+
+.project-details {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
+  color: var(--text-inverse);
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h40V20c-11.046 0-20-8.954-20-20H20z'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+.btn-back {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-inverse);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.project-info {
+  position: relative;
+  z-index: 1;
+}
+
+.project-info h1 {
+  font-size: 2.75rem;
+  margin-bottom: var(--space-3);
+  font-weight: 800;
+  background: linear-gradient(45deg, var(--text-inverse), rgba(255, 255, 255, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-desc {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.project-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-8);
+  flex: 1;
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+  background: var(--surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+
+.tasks-header h2 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === MODERN TASK LIST === */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.task-section h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+}
+
+.task-item {
+  background: var(--surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.task-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary-500), var(--secondary-500));
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.task-item:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--primary-200);
+}
+
+.task-item:hover::before {
+  transform: scaleY(1);
+}
+
+.task-item.completed {
+  opacity: 0.6;
+  background: var(--bg-tertiary);
+}
+
+.task-item.completed::before {
+  background: var(--success-500);
+  transform: scaleY(1);
+}
+
+.task-item.overdue {
+  border-color: var(--error-200);
+  background: linear-gradient(135deg, var(--surface) 0%, #fef2f2 100%);
+}
+
+.task-item.overdue::before {
+  background: var(--error-500);
+  transform: scaleY(1);
+}
+
+.task-checkbox {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.task-checkbox input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-500);
+}
+
+.task-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: var(--text-tertiary);
+}
+
+.task-title-edit {
+  font-size: 1.125rem;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--primary-500);
+  border-radius: var(--radius-md);
+  width: 100%;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.task-meta {
+  display: flex;
+  gap: var(--space-4);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.task-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+.task-due-date.overdue-text {
+  color: var(--error-600);
+  background: var(--error-50);
+  font-weight: 600;
+}
+
+.task-hours {
+  color: var(--primary-600);
+  background: var(--primary-50);
+  font-weight: 600;
+}
+
+.task-dependencies {
+  color: var(--success-600);
+  background: var(--success-50);
+  font-weight: 600;
+  cursor: help;
+}
+
+.task-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* === MODERN SMART SCHEDULER MODAL === */
+.scheduler-modal {
+  max-width: 800px;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, var(--warning-50) 0%, #fef3c7 100%);
+  border: 1px solid var(--warning-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  color: var(--warning-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-height: 500px;
+  overflow-y: auto;
+  padding: var(--space-2);
+}
+
+.schedule-item {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-5);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary-500), var(--secondary-500));
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.schedule-item:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary-200);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.schedule-item:hover::before {
+  transform: scaleY(1);
+}
+
+.schedule-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--secondary-500) 100%);
+  color: var(--text-inverse);
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.schedule-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.schedule-content h4 {
+  margin: 0 0 var(--space-2) 0;
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.schedule-meta {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  margin-top: var(--space-2);
+}
+
+.schedule-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .project-header {
+    padding: var(--space-6);
+  }
+
+  .project-info h1 {
+    font-size: 2.25rem;
+  }
+
+  .project-content {
+    padding: var(--space-6);
+  }
+
+  .tasks-header {
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .task-item {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .task-meta {
+    gap: var(--space-2);
+  }
+
+  .task-meta span {
+    font-size: 0.75rem;
+    padding: var(--space-1);
+  }
+
+  .schedule-item {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .schedule-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-header {
+    padding: var(--space-4);
+  }
+
+  .project-info h1 {
+    font-size: 1.875rem;
+  }
+
+  .project-content {
+    padding: var(--space-4);
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .task-checkbox {
+    order: -1;
+  }
+
+  .task-actions {
+    align-self: flex-end;
+  }
+}
